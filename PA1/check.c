@@ -1,35 +1,20 @@
 #include <stdio.h>
+#include "balance.h"
 #define BUFSIZE 1000
 
 char buf[BUFSIZE];//buffer for left parentheses
-
 int bufp;//next free position in buf
-struct sNode {
-  char data;
-  struct sNode* next;
-};
 
 int check(char str[]) {
-    int i = 0;
-    struct sNode* stack = NULL;
+  if (strlen(opening_symbols) == 0 && strlen(closing_symbols) == 0) {
+    opening_symbols[0] = '(';
+    opening_symbols[1] = '\0';
+    closing_symbols[0] = ')';
+    closing_symbols[1] = '\0';
+  }
 
-    while (str[i]) {
-        if (str[i] == '{' || str[i] == '(' || str[i] == '[')
-            push(&stack, str[i]);
-        if (str[i] == '}' || str[i] == ')'
-            || str[i] == ']') {
-            if (stack == NULL)
-                return 0;
-            else if (!is_balanced(str[i]))
-                return 0;
-        }
-        i++;
-    }
-
-    if (stack == NULL)
-        return 1; // balanced
-    else
-        return 0; // not balanced
+  
+  return bufp;
 }
 
 void push(char c){
