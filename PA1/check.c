@@ -41,7 +41,7 @@ int check(char str[]) {
     }
   }
   
-  return bufp;
+  return bufp == 0;
 }
 
 void push(char c){
