@@ -12,7 +12,34 @@ int check(char str[]) {
     closing_symbols[0] = ')';
     closing_symbols[1] = '\0';
   }
+  int length = strlen(str);
 
+  for (int i = 0; i < length; i++) {
+    for (int j = 0; j < strlen(opening_symbols); j++) {
+      if (str[i] == opening_symbols[j]) {
+        push(str[i]);
+      } else {
+        continue;
+      }
+    }
+
+    if (pop() == EOF) {
+      return 1;
+    } else {
+        char check_opening_symbol = pop();
+        char curr_closing_symbol = str[1];
+
+        for (int j = 0; j < strlen(closing_symbols); i++) {
+          if (closing_symbols[j] == curr_closing_symbol) {
+            if (check_opening_symbol == opening_symbols[j]) {
+              break;
+            } else {
+              return 0;
+            }
+          }
+        }
+    }
+  }
   
   return bufp;
 }
