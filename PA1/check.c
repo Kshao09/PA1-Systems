@@ -5,6 +5,18 @@
 char buf[BUFSIZE];//buffer for left parentheses
 int bufp;//next free position in buf
 
+void push(char c){
+  if(bufp == BUFSIZE)
+    ;
+  buf[bufp++] = c;
+}
+
+char pop(){
+  if(bufp == 0)
+    return EOF;
+  return buf[--bufp];
+}
+
 int check(char str[]) {
   if (strlen(opening_symbols) == 0 && strlen(closing_symbols) == 0) {
     opening_symbols[0] = '(';
@@ -42,18 +54,6 @@ int check(char str[]) {
   }
   
   return bufp == 0;
-}
-
-void push(char c){
-  if(bufp == BUFSIZE)
-    ;
-  buf[bufp++] = c;
-}
-
-char pop(){
-  if(bufp == 0)
-    return EOF;
-  return buf[--bufp];
 }
 
 int is_balanced(char input[]){
