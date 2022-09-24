@@ -44,6 +44,12 @@ int main(){
         else{
           get_line(str, 400);
           printf("Checking %s...\n", str); 
+
+          if(check(str) == 1) {
+            printf("balanced");
+          } else {
+            printf("unbalanced");
+          }
         }
 		} else if(equals(command, "pair")){
         if(next_char == '\n')
