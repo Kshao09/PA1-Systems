@@ -5,6 +5,9 @@
 char buf[BUFSIZE];//buffer for left parentheses
 int bufp;//next free position in buf
 
+char opening_symbols[51];
+char closing_symbols[51];
+
 void push(char c){
   if(bufp == BUFSIZE)
     ;
